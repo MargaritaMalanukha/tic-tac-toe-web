@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socket.app.GameEntryController"
+      style="-fx-background-color: #2D3447" prefWidth="1800" prefHeight="1080" alignment="CENTER">
+    <Label text="Welcome to the TicTacToe!" alignment="TOP_CENTER" style="-fx-text-fill: black"/>
+    <Button text="Play game" style="-fx-background-color: #51c2d5"/>
+    <Button text="Exit app" style="-fx-background-color: #51c2d5" alignment="BOTTOM_CENTER"/>
+</VBox>
