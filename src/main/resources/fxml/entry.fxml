@@ -1,11 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socket.app.GameEntryController"
-      style="-fx-background-color: #2D3447" prefWidth="1800" prefHeight="1080" alignment="CENTER">
-    <Label text="Welcome to the TicTacToe!" alignment="TOP_CENTER" style="-fx-text-fill: black"/>
-    <Button text="Play game" style="-fx-background-color: #51c2d5"/>
-    <Button text="Exit app" style="-fx-background-color: #51c2d5" alignment="BOTTOM_CENTER"/>
+<VBox alignment="CENTER" prefHeight="1080" prefWidth="1800" style="-fx-background-color: #2D3447" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socket.app.GameEntryController">
+     <Label alignment="TOP_CENTER" style="-fx-text-fill: black" text="Welcome to the TicTacToe!">
+      <font>
+         <Font name="Montserrat Regular" size="36.0" />
+      </font>
+   </Label>
+     <Button fx:id="playButton" onAction="#handlePlayButton" style="-fx-background-color: #51c2d5" text=" Play game">
+      <font>
+         <Font name="MS Gothic" size="36.0" />
+      </font>
+      <VBox.margin>
+         <Insets bottom="50.0" top="100.0" />
+      </VBox.margin>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+   </Button>
+     <Button fx:id="exitButton" alignment="BOTTOM_CENTER" onAction="#exitButtonOnClick" style="-fx-background-color: #51c2d5" text="Exit app">
+      <VBox.margin>
+         <Insets />
+      </VBox.margin>
+      <font>
+         <Font name="MS Gothic" size="36.0" />
+      </font></Button>
+   <Label text="made by Margarita Malanukha and Ivan Berezovsky, 2021">
+      <font>
+         <Font name="Montserrat Regular" size="24.0" />
+      </font>
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+               <Stop offset="0.18347355531856072">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+               <Stop offset="0.2109254651025001">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+               <Stop offset="0.3108978156969625">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="1.0" green="1.0" blue="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill>
+      <VBox.margin>
+         <Insets top="100.0" />
+      </VBox.margin>
+   </Label>
 </VBox>

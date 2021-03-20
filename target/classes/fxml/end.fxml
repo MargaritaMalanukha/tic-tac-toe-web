@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socket.app.EndController">
+     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="103.0" prefWidth="607.0" style="-fx-font-size: 70" text="Nice game!" textFill="#36909c" />
+   <Button fx:id="toMenuButton" mnemonicParsing="false" onAction="#handleToMenuButton" style="-fx-background-color: #51c2d5" text="To Main Menu">
+      <font>
+         <Font name="Montserrat Regular" size="24.0" />
+      </font>
+      <VBox.margin>
+         <Insets top="50.0" />
+      </VBox.margin>
+   </Button>
+</VBox>

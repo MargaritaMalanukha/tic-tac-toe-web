@@ -194,13 +194,8 @@ public class TicTacToe {
         }
     }
 
-    public void printCurrentPosition() {
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                System.out.print(currentPosition[i][j] + " ");
-            }
-            System.out.println();
-        }
+    public String getCurrentPlayerSign() {
+        return sideToMove ? firstPlayerSign + "" : secondPlayerSign + "";
     }
 
 }
