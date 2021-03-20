@@ -1,12 +1,7 @@
 package com.socket.app;
 
-import javafx.event.ActionEvent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class GameEntryController {
     public TicTacToeApp ticTacToeApp = new TicTacToeApp();
