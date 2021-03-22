@@ -49,6 +49,7 @@ public class Tile extends StackPane {
                     stage.setScene(ticTacToeApp.createScene(pathToEndFxml));
                 }
             }
+
         });
     }
 }
