@@ -1,5 +1,6 @@
 package com.socket.app;
 
+import com.socket.app.networkClient.Client;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ import java.io.IOException;
 //todo 7. Снять видеоролик.
 
 public class TicTacToeApp extends Application {
-
+    public static Client client;
     public Stage window;
     public Scene entryScene;
     public Scene gameScene;
@@ -57,6 +58,8 @@ public class TicTacToeApp extends Application {
     }
 
     public static void main(String[] args) {
+        client = new Client();
+        client.start();
         launch(args);
     }
 }
