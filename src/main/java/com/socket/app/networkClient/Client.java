@@ -5,14 +5,18 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client extends Thread{
+    // Network data
     private static Socket socket = null;
     private static Scanner input = null;
     private static PrintWriter output = null;
     private static final int SERVICE_PORT = 1997;
 
+    // Game data
+    private static boolean canMove = true;
+
     @Override
-    public synchronized void start() {
-        if(establishConnection() && setupCommunicationStreams()) playGame();
+    public void run() {
+        if(establishConnection() && setupCommunicationStreams()) dispatchGame();
         closeConnection();
     }
 
@@ -41,7 +45,7 @@ public class Client extends Thread{
             return false;
         }
     }
-    private static void playGame(){
+    private static void dispatchGame(){
         String move,response;
 
         do{
@@ -49,9 +53,11 @@ public class Client extends Thread{
             System.out.println(response);
             switch (response){
                 case Protocol.SIGNAL_MOVE: {
+                    canMove = true;
                     break;
                 }
                 case Protocol.SIGNAL_WAIT: {
+                    canMove = false;
                     break;
                 }
                 default:{
@@ -71,7 +77,7 @@ public class Client extends Thread{
     }
 
     // methods
-    public void MakeMove(){
-        output.println("MAKING MOVE");
+    public void MakeMove(String serializedMove){
+        if(canMove) output.println(Protocol.SIGNAL_CLIENT_MOVE + "/" + serializedMove);
     }
 }

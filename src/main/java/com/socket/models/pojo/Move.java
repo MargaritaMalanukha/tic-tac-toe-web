@@ -21,6 +21,7 @@ public class Move {
         int y = Integer.parseInt(strings[1]);
 
         return new Move(x, y);
+
     }
 
 }

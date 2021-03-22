@@ -39,7 +39,8 @@ public class Tile extends StackPane {
         getChildren().addAll(border, text);
 
         setOnMouseClicked(event -> {
-            TicTacToeApp.client.MakeMove();
+            TicTacToeApp.client.MakeMove(Move.serializeToString(move));
+
             if (text.getText().equals("")) {
                 text.setText(ticTacToe.getCurrentPlayerSign());
                 Control control = ticTacToe.analyze(move);
