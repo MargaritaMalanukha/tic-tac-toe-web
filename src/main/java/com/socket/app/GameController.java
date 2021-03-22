@@ -10,15 +10,16 @@ public class GameController {
 
     public Pane root;
     public TicTacToe ticTacToe = new TicTacToe();
+    public static Tile [][] tiles = new Tile[30][30];
 
     public void initialize() {
         for (int i = 0; i < ticTacToe.getROWS(); i++) {
             for (int j = 0; j < ticTacToe.getCOLUMNS(); j++) {
-                Tile tile = new Tile(ticTacToe, new Move(i, j), root);
-                tile.setTranslateX(j * 30);
-                tile.setTranslateY(i * 30);
+                tiles[i][j] = new Tile(ticTacToe, new Move(i, j), root);
+                tiles[i][j].setTranslateX(j * 30);
+                tiles[i][j].setTranslateY(i * 30);
 
-                root.getChildren().add(tile);
+                root.getChildren().add(tiles[i][j]);
             }
         }
     }

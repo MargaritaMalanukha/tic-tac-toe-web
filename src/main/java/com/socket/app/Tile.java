@@ -24,10 +24,12 @@ public class Tile extends StackPane {
     private final Move move;
     private final String pathToEndFxml = "/fxml/end.fxml";
     private Stage stage;
+    private Pane root;
 
     public Tile(TicTacToe ticTacToe, Move move, Pane root) {
         this.ticTacToe = ticTacToe;
         this.move = move;
+        this.root = root;
 
         Rectangle border = new Rectangle(30, 30);
         border.setFill(null);
@@ -52,5 +54,18 @@ public class Tile extends StackPane {
             }
 
         });
+    }
+
+    public void drawOpponentMove(Move move) {
+        if (text.getText().equals("")) {
+            text.setText(ticTacToe.getCurrentPlayerSign());
+            Control control = ticTacToe.analyze(move);
+            if (!control.isGameContinue()) {
+                stage = (Stage) root.getScene().getWindow();
+                TicTacToeApp ticTacToeApp = new TicTacToeApp();
+                stage.setScene(ticTacToeApp.createScene(pathToEndFxml));
+            }
+        }
+
     }
 }
