@@ -1,5 +1,8 @@
 package com.socket.app.networkClient;
 
+import com.socket.app.GameController;
+import com.socket.models.pojo.Move;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -46,23 +49,20 @@ public class Client extends Thread{
         }
     }
     private static void dispatchGame(){
-        String move,response;
+        String response;
 
         do{
             response = input.nextLine();
             System.out.println(response);
-            switch (response){
-                case Protocol.SIGNAL_MOVE: {
-                    canMove = true;
-                    break;
+            if (response.startsWith(Protocol.SIGNAL_MOVE)) {
+                if(response.lastIndexOf('/') != -1) {
+                    String serializedMove = response.substring(response.lastIndexOf('/') + 1);
+                    Move move = Move.deserializeFromString(serializedMove);
+                    GameController.tiles[move.getX()][move.getY()].drawOpponentMove(move);
                 }
-                case Protocol.SIGNAL_WAIT: {
-                    canMove = false;
-                    break;
-                }
-                default:{
-                    break;
-                }
+                canMove = true;
+            } else if (Protocol.SIGNAL_WAIT.equals(response)) {
+                canMove = false;
             }
         }while (!(response.equals(Protocol.SIGNAL_END)));
     }
