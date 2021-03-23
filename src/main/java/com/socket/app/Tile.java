@@ -23,6 +23,7 @@ public class Tile extends StackPane {
     private final TicTacToe ticTacToe;
     private final Move move;
     private final String pathToEndFxml = "/fxml/end.fxml";
+    private final String pathToEndLostFxml = "/fxml/endLost.fxml";
     private Stage stage;
     private Pane root;
     private EndController endController = new EndController();
@@ -53,7 +54,6 @@ public class Tile extends StackPane {
                     stage.setScene(ticTacToeApp.createScene(pathToEndFxml));
                 }
             }
-
         });
     }
 
@@ -67,6 +67,11 @@ public class Tile extends StackPane {
                 stage.setScene(ticTacToeApp.createScene(pathToEndFxml));
             }
         }
+    }
 
+    public void drawLooseScreen(){
+        stage = (Stage) root.getScene().getWindow();
+        TicTacToeApp ticTacToeApp = new TicTacToeApp();
+        stage.setScene(ticTacToeApp.createScene(pathToEndLostFxml));
     }
 }

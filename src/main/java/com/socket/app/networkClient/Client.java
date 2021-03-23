@@ -54,6 +54,9 @@ public class Client extends Thread{
         do{
             response = input.nextLine();
             System.out.println(response);
+            if (response.equals(Protocol.SIGNAL_OPPONENT_LOOSE)){
+                GameController.tiles[0][0].drawLooseScreen();
+            }
             if (response.startsWith(Protocol.SIGNAL_MOVE)) {
                 if(response.lastIndexOf('/') != -1) {
                     String serializedMove = response.substring(response.lastIndexOf('/') + 1);
@@ -82,6 +85,6 @@ public class Client extends Thread{
     }
 
     public void sendLooseMessage() {
-
+        output.println(Protocol.SIGNAL_OPPONENT_LOOSE);
     }
 }
