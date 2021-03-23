@@ -8,5 +8,4 @@ public class Protocol {
 
     // Client-to-server signals
     public static final String SIGNAL_CLIENT_MOVE = "CLIENT_MOVE";
-    public static final String SIGNAL_OPPONENT_LOOSE = "OPPONENT_LOOSE";
 }
