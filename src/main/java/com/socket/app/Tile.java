@@ -25,6 +25,7 @@ public class Tile extends StackPane {
     private final String pathToEndFxml = "/fxml/end.fxml";
     private Stage stage;
     private Pane root;
+    private EndController endController = new EndController();
 
     public Tile(TicTacToe ticTacToe, Move move, Pane root) {
         this.ticTacToe = ticTacToe;

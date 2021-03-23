@@ -1,5 +1,7 @@
 package com.socket.models;
 
+import com.socket.app.TicTacToeApp;
+import com.socket.app.networkClient.Client;
 import com.socket.models.exceptions.NonEmptyCellException;
 import com.socket.models.pojo.Control;
 import com.socket.models.pojo.Move;
@@ -56,10 +58,12 @@ public class TicTacToe {
             return new Control(true, e.getMessage());
         }
         if (gameEnds(move)) {
+            TicTacToeApp.client.sendLooseMessage();
             return new Control(false, message);
         }
         return new Control(true, message);
     }
+
 
     private boolean gameEnds(Move move) {
         //количество знаков одного игрока с учетом начальной клетки

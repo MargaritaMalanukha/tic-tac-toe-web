@@ -80,4 +80,8 @@ public class Client extends Thread{
     public void MakeMove(String serializedMove){
         if(canMove) output.println(Protocol.SIGNAL_CLIENT_MOVE + "/" + serializedMove);
     }
+
+    public void sendLooseMessage() {
+
+    }
 }

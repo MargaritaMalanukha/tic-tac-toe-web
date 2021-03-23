@@ -14,7 +14,7 @@ import java.io.IOException;
  * @author Margarita Malanukha
  */
 
-//todo 4. Приведение в нормальный вид game.fxml и entry.fxml.
+//todo 4. Приведение в нормальный вид game.fxml и entryLost.fxml.
 //todo 5. Прикручивание сокетов.
 //todo 6. Тестирование.
 //todo 7. Снять видеоролик.
